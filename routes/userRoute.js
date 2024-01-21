@@ -3,11 +3,11 @@ const userRouter = Router();
 
 const userController = require("../controllers/userController");
 
-router.route('./sigup').post(userController.signup);
-router.route('./login').post(userController.login);
-router.route('/logout'),get(userController.logout);
-router.route('./forgotPassword').post(userController.forgotPassword);
-router.route('./restPassword/:token').patch(userController.resetPassword);
+userRouter.route('/signup').post(userController.signup);
+userRouter.route('/login').post(userController.login);
+userRouter.route('/logout').get(userController.logout);
+userRouter.route('/forgotPassword').post(userController.forgotPassword);
+userRouter.route('/restPassword/:token').patch(userController.resetPassword);
 
 
 

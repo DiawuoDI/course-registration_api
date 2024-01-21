@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3002;
 require("dotenv/config")
 
 const HttpException = require('./utils/http-exception')
-const userRoute = require('./routes/userRoute');
+const userRoutes = require('./routes/userRoute');
 const courseRouter = require('./routes/courseRouter');
 const studentRoutes = require('./routes/studentRoutes');
 
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(bodyparser.json());
 
 //USING THE ROUTE
-app.use('/api/v1/user', userRoute);
+app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/student', studentRoutes);
 app.use('/api/vi/course', courseRouter)
 

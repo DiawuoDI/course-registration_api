@@ -1,5 +1,5 @@
 const {PrismaClient} = require("@prisma/client");
-const HttpException = require('../http-exception');
+const HttpException = require('../utils/http-exception');
 const prisma = new PrismaClient();
 
 exports.checkCourse = async (req, res, next) => {

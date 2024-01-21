@@ -1,8 +1,8 @@
 const {PrismaClient} = require("@prisma/client");
-const sendEmail= require("../uitls/email");
+const sendEmail= require("../utils/email");
 const passwordUtil = require('../utils/passwordUtil');
 const HttpException = require("../utils/http-exception");
-const tokenUtil = reuire('./utils/tokenUtil')
+const tokenUtil = require('../utils/tokenUtil')
 const prisma = new PrismaClient();
 const crypto = require('crypto');
 
