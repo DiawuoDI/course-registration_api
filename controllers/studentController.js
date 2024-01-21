@@ -65,7 +65,7 @@ exports.registerStudent = async (req, res, next) => {
     try {
       const students = await prisma.students.findMany({});
       res.status(200).json({
-        status: 'success',
+        status: 'successfull',
         students,
       });
     } catch (error) {

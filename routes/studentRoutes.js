@@ -6,12 +6,16 @@ const validations = require("../validations/student")
 const auth = require('../utils/tokenUtil')
 
 studentRouter.route('/')
-     .post(validations.checkStudentId, auth.verifyToken, studentController.registerStudent, studentController.assignStudentCourse)
-     .get(studentController.getAllStudents)
+     .post( validations.checkStudentId,
+            auth.verifyToken, 
+            studentController.registerStudent, 
+            studentController.assignStudentCourse)
+     .get(  studentController.getAllStudents)
 
 
 studentRouter.route('/:id')
-    .patch(  auth.verifyToken, studentController.UpdateStudent) 
+    .patch( auth.verifyToken, 
+            studentController.UpdateStudent) 
 
 module.exports = studentRouter;
    
