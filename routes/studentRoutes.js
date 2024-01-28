@@ -8,14 +8,15 @@ const auth = require('../utils/tokenUtil')
 studentRouter.route('/')
      .post( validations.checkStudentId,
             auth.verifyToken, 
-            studentController.registerStudent, 
-            studentController.assignStudentCourse)
+            studentController.registerStudent, )       
      .get(  studentController.getAllStudents)
+     studentRouter.route("/assignment").post(studentController.assignStudentCourse)
 
 
 studentRouter.route('/:id')
     .patch( auth.verifyToken, 
-            studentController.UpdateStudent) 
+            studentController.UpdateStudent)
+     .get(  studentController.getSingleStudent)
 
 module.exports = studentRouter;
    

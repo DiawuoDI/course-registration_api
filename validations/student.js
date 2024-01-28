@@ -4,7 +4,7 @@ const HttpException = require('../utils/http-exception');
 
 exports.checkStudentId = async (req, res, next) => {
   const { studentId } = req.body;
-  const studentExist = await prisma.students.findUnique({
+  const studentExist = await prisma.student.findUnique({
     where: {
       studentId,
     },

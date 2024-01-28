@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
 //Sign the jwt token
 exports.signToken = id => {
-  return jwt.sing({id}, process.env.SECRET_STR, {
-      expiresIn: process.env.LOGIN_EXPIRES
+  return jwt.sign({id}, process.env.SECRET_KEY, {
+      expiresIn:'2h'
   })
 }
 exports.setInvalidToken = (loggedout) => {
@@ -39,7 +39,7 @@ exports.verifyToken = (req, res, next) => {
       });
     }
     try {
-      const verified = jwt.verify(token, process.env.JWT_SECRET);
+      const verified = jwt.verify(token, process.env.SECRET_KEY);
       req.user = verified;
       next();
     } catch (error) {

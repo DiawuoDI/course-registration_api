@@ -7,6 +7,7 @@ require("dotenv/config")
 const HttpException = require('./utils/http-exception')
 const userRoutes = require('./routes/userRoute');
 const courseRouter = require('./routes/courseRouter');
+const programeRouter = require('./routes/programeRouter');
 const studentRoutes = require('./routes/studentRoutes');
 
 
@@ -16,14 +17,15 @@ app.use(bodyparser.json());
 
 //USING THE ROUTE
 app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/programe', programeRouter);
 app.use('/api/v1/student', studentRoutes);
-app.use('/api/vi/course', courseRouter)
+app.use('/api/v1/course', courseRouter)
 
 app.all('', (req, res, next) => {
-        const error = new HttpException('cant find ${req.originalUrl} on the server!', 404);
+        const error = new HttpException(`cant find ${req.originalUrl} on the server!`, 404);
        next(error);
     })
 
 app.listen(PORT, () => {
-    console.log('server is runnig on port ${port}');
+    console.log(`server is running on port ${PORT}`);
 })

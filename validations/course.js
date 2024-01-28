@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 
 exports.checkCourse = async (req, res, next) => {
   const { courseName } = req.body;
-  const courseExist = await prisma.coursemgt.findFirst({
+  const courseExist = await prisma.course.findFirst({
     where: {
       OR: [
         {

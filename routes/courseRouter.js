@@ -6,9 +6,8 @@ const validator = require('../validations/course');
 const auth = require('../utils/tokenUtil');
 
 courseRouter.route('/')
-    .post( auth.verifyToken,
-           validator.checkstudentsInCourse,
-           courseController.registerStudentCourse)
+    .post( 
+           courseController.createCourse)
     .get(  auth.verifyToken, 
            courseController.getAllCourses)   
 
